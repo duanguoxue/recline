@@ -159,7 +159,7 @@ my.Flot = Backbone.View.extend({
     if (this._groupFieldIsDateTime()) {
       // oddly x comes through as milliseconds *string* (rather than int
       // or float) so we have to reparse
-      x = new Date(parseFloat(x)).toLocaleDateString();
+      x = moment(parseFloat(x)).format('YYYY-MM-DD hh:mm:ss');
     } else if (this.xvaluesAreIndex) {
       x = parseInt(x, 10);
       // HACK: deal with bar graph style cases where x-axis items were strings
